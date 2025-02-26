@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Mobile",
+        "desc": "Description of Product 1",
+        "price": 10.99,
+        "url":"assets/images/1.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "T.V",
+        "desc": "Description of Product 2",
+        "price": 15.99,
+        "url": "assets/images/2.jpeg"
+    },
+    {
+        "id": 3,
+        "name": "Clay Bowls",
+        "desc": "Description of Product 3",
+        "price": 20.99,
+        "url": "assets/images/3.jpeg"
+    },
+    {
+        "id": 4,
+        "name": "Bhagavad Gita book",
+        "desc": "Description of Product 1",
+        "price": 10.99,
+        "url": "assets/images/4.jpeg"
+    },
+    {
+        "id": 5,
+        "name": "Kids Toys",
+        "desc": "Description of Product 2",
+        "price": 15.99,
+        "url": "assets/images/5.jpeg"
+    },
+    {
+        "id": 6,
+        "name": "Laptops",
+        "desc": "Description of Product 3",
+        "price": 20.99,
+        "url": "assets/images/6.jpeg"
+    }
+]

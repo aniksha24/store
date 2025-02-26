@@ -4,24 +4,59 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="index.js"></script>
+    <title>My Store</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" defer></script>
 </head>
-<body onload="showProducts()">
-    <h1>My Store</h1>
-    <h4 onclick="displayCart()" id="v">Cart:<span id='items'></span></h4>
-    <hr />
-    <div id="productBox">
-        <h3>Products</h3>
-        <div id="divProducts"></div>
+
+<body>
+    <!-- Login/Signup Container -->
+    <div id="authContainer">
+        <div id="loginBox">
+            <h1>My Store</h1>
+            <h3>Login</h3>
+            <input type="text" id="loginEmail" placeholder="Email" />
+            <input type="password" id="loginPassword" placeholder="Password" />
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="javascript:void(0);" onclick="showSignup()">Register</a></p>
+        </div>
+
+        <div id="signupBox" style="display: none;">
+            <h1>My Store</h1>
+            <h3>Create Account</h3>
+            <input type="text" id="signupName" placeholder="Full Name" />
+            <input type="text" id="signupEmail" placeholder="Email" />
+            <input type="password" id="signupPassword" placeholder="Password" />
+            <input type="date" id="signupDOB" />
+            <button onclick="signup()">Register</button>
+            <p>Already have an account? <a href="javascript:void(0);" onclick="showLogin()">Login</a></p>
+        </div>
     </div>
 
-    <div id="cartBox" style="display:none">
-        <h3>My Cart</h3>
-        <div id="divCart"></div>
-        <h4>Order Value:<span id="Order"></span></h4>
-        <button onclick="hideCart()">Close</button>
+    <!-- Store Container (Hidden Initially) -->
+    <div id="storeContainer" style="display: none;">
+        <div class="header">
+            <h1>My Store</h1>
+            <div class="menu">
+                <ul>
+                    <li><h4 onclick="hideCart(); showMenu()" id="v">HOME</h4></li>
+                    <li><h4 onclick="displayCart()" id="v">CART: <span id="items">0</span></h4></li>
+                    <li><h4 onclick="showMenu()" id="v">MENU</h4></li>
+                    <li><h4 onclick="me()" id="v">ME</h4></li>
+                </ul>
+            </div>
+        </div>
+        <div id="productBox">
+            <div id="divProducts"></div>
+        </div>
+
+        <div id="cartBox" style="display: none">
+            <h3>My Cart</h3>
+            <div id="divCart"></div>
+            <h4>Order value: <span id="order">0.00</span></h4>
+            <button onclick="hideCart()">Close</button>
+        </div>
+        <div class="footer">@copyright 2025. All rights reserved.</div>
     </div>
 </body>
 
