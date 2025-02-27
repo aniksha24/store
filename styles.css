@@ -77,25 +77,26 @@ a {
 a:hover {
     text-decoration: underline;
 }
-
-/* Store Container Styles */
 #storeContainer {
     display: flex;
     width: 100%;
-    /* max-width: 1200px; */
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
-
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: cadetblue;
     align-items: center;
-    padding: 10px ;
+    background-color: cadetblue;
+    padding: 10px 20px;
     box-sizing: border-box;
     width: 100%;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .menu ul {
@@ -103,13 +104,12 @@ a:hover {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .menu ul li {
-    margin-left: 20px;
+    margin: 0;
 }
-
 .menu ul li h4 {
     margin: 0;
     cursor: pointer;
@@ -195,4 +195,13 @@ hr {
 }
 .footer{
     text-align: center;
+}
+
+#searchBox {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 200px;
+    margin-right: 20px;
 }

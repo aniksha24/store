@@ -1,20 +1,13 @@
-// // Show login form by default
-// document.getElementById("authContainer").style.display = "block";
-// document.getElementById("storeContainer").style.display = "none";
-
-// Function to show the signup form and hide the login form
+document.getElementById("authContainer").style.display = "block";
+document.getElementById("storeContainer").style.display = "none";
 function showSignup() {
     document.getElementById("loginBox").style.display = "none";
     document.getElementById("signupBox").style.display = "flex";
 }
-
-// Function to show the login form and hide the signup form
 function showLogin() {
     document.getElementById("signupBox").style.display = "none";
     document.getElementById("loginBox").style.display = "flex";
 }
-
-// Function to handle login
 function login() {
     const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
@@ -28,8 +21,6 @@ function login() {
     document.getElementById("authContainer").style.display = "none";
     document.getElementById("storeContainer").style.display = "block";
 }
-
-// Function to handle signup
 function signup() {
     const name = document.getElementById("signupName").value;
     const email = document.getElementById("signupEmail").value;
@@ -44,12 +35,13 @@ function signup() {
     alert(`Account created for: ${name}\nEmail: ${email}\nDOB: ${dob}`);
     showLogin();
 }
-
-// Store-related JavaScript
 let products = [];
 fetch("products.json")
     .then((response) => response.json())
-    .then((data) => (showProducts(data)));
+    .then((data) => {
+        products = data;
+        showProducts(products);
+    });
 
 const cart = {};
 const addToCart = (id) => {
@@ -111,9 +103,8 @@ const showCart = () => {
 };
 
 const showProducts = (data) => {
-    products = data;
     let str = "<div class='row'>";
-    products.map((value) => {
+    data.map((value) => {
         str += `
         <div class='box'>
         <img src='${value.url}'>
@@ -127,6 +118,21 @@ const showProducts = (data) => {
     divProducts.innerHTML = str + "</div>";
 };
 
+const searchProducts = () => {
+    const searchTerm = document.getElementById("searchBox").value.toLowerCase();
+    const filteredProducts = products.filter(product =>
+        product.name.toLowerCase().includes(searchTerm)
+    );
+    showProducts(filteredProducts);
+};
+
+const showMenu = () => {
+    hideCart();
+    const productList = products.map(product => product.name).join(", ");
+    alert(`Available Products: ${productList}`);
+    showProducts(products); // Show all products in the product box
+};
+
 const me = () => {
     fetch('customer.json')
         .then(response => response.json())
@@ -137,11 +143,4 @@ const me = () => {
             console.error('Error fetching customer details:', error);
             alert('Failed to load customer details. Please try again later.');
         });
-};
-
-const showMenu = () => {
-    hideCart();
-    fetch("products.json")
-        .then((response) => response.json())
-        .then((data) => (showProducts(data)));
 };
